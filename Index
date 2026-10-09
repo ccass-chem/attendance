@@ -11,6 +11,7 @@
 
   <div class="max-w-6xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
     
+    <!-- 頂部導覽頁籤 (Tabs) -->
     <div class="bg-gray-800 text-white flex flex-wrap items-center justify-between border-b border-gray-700 pr-4">
       <div class="flex flex-wrap">
         <button onclick="switchTab('tab-s1')" id="nav-tab-s1" class="px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base font-bold border-b-4 border-blue-500 bg-gray-700">📝 S.1 點名</button>
@@ -24,6 +25,7 @@
     </div>
 
     <div class="p-4 sm:p-6">
+      <!-- 共用活動日期與內容設定區 -->
       <div id="activityHeader" class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-blue-50 p-4 rounded-lg mb-6">
         <div>
           <label class="block text-sm font-semibold mb-1 text-gray-700">活動日期</label>
@@ -39,24 +41,24 @@
         </div>
       </div>
 
-      <!-- S.1 點名 -->
+      <!-- 頁面 1: S.1 點名 -->
       <div id="tab-s1" class="space-y-6">
         <div class="flex flex-wrap items-center justify-between gap-2 border-b pb-4">
           <h2 class="text-xl font-bold text-gray-800">S.1 學生點名區</h2>
           <div class="flex flex-wrap gap-2">
-            <button onclick="markAllPresent('s1')" class="bg-green-600 text-white px-3 py-2 rounded hover:bg-green-700 text-sm font-medium">✓ S.1 全員出席</button>
-            <button onclick="markAllAbsent('s1')" class="bg-red-600 text-white px-3 py-2 rounded hover:bg-red-700 text-sm font-medium">✕ S.1 全員缺席</button>
-            <button onclick="exportExcelReport()" class="bg-emerald-700 text-white px-3 py-2 rounded hover:bg-emerald-800 text-sm font-medium">⬇ 匯出 Excel</button>
+            <button onclick="markAllPresent('s1')" class="bg-green-600 text-white px-3 sm:px-4 py-2 rounded hover:bg-green-700 text-xs sm:text-sm font-medium">✓ 一鍵 S.1 全員出席</button>
+            <button onclick="markAllAbsent('s1')" class="bg-red-600 text-white px-3 sm:px-4 py-2 rounded hover:bg-red-700 text-xs sm:text-sm font-medium">✕ 一鍵 S.1 全員缺席</button>
+            <button onclick="exportExcelReport()" class="bg-emerald-700 text-white px-3 sm:px-4 py-2 rounded hover:bg-emerald-800 text-xs sm:text-sm font-medium">⬇ 匯出 Excel 明細報告</button>
           </div>
         </div>
         <div class="overflow-x-auto">
           <table class="w-full text-left border-collapse">
             <thead>
-              <tr class="bg-gray-100 text-gray-700 text-sm border-b whitespace-nowrap">
-                <th class="p-3">班別</th><th class="p-3">學號</th><th class="p-3">姓名</th><th class="p-3">點名狀態</th><th class="p-3">缺席原因</th>
+              <tr class="bg-gray-100 text-gray-700 text-xs sm:text-sm border-b whitespace-nowrap">
+                <th class="p-2 sm:p-3">班別</th><th class="p-2 sm:p-3">學號</th><th class="p-2 sm:p-3">姓名</th><th class="p-2 sm:p-3">點名狀態</th><th class="p-2 sm:p-3">缺席原因</th>
               </tr>
             </thead>
-            <tbody id="s1TableBody" class="divide-y divide-gray-200 text-sm"></tbody>
+            <tbody id="s1TableBody" class="divide-y divide-gray-200 text-xs sm:text-sm"></tbody>
           </table>
         </div>
         <div class="flex justify-end pt-4">
@@ -64,24 +66,24 @@
         </div>
       </div>
 
-      <!-- 其他點名 -->
+      <!-- 頁面 2: 其他點名 -->
       <div id="tab-others" class="space-y-6 hidden">
         <div class="flex flex-wrap items-center justify-between gap-2 border-b pb-4">
           <h2 class="text-xl font-bold text-gray-800">其他年級學生點名區</h2>
           <div class="flex flex-wrap gap-2">
-            <button onclick="markAllPresent('others')" class="bg-green-600 text-white px-3 py-2 rounded hover:bg-green-700 text-sm font-medium">✓ 全員出席</button>
-            <button onclick="markAllAbsent('others')" class="bg-red-600 text-white px-3 py-2 rounded hover:bg-red-700 text-sm font-medium">✕ 全員缺席</button>
-            <button onclick="exportExcelReport()" class="bg-emerald-700 text-white px-3 py-2 rounded hover:bg-emerald-800 text-sm font-medium">⬇ 匯出 Excel</button>
+            <button onclick="markAllPresent('others')" class="bg-green-600 text-white px-3 sm:px-4 py-2 rounded hover:bg-green-700 text-xs sm:text-sm font-medium">✓ 一鍵 其他年級全員出席</button>
+            <button onclick="markAllAbsent('others')" class="bg-red-600 text-white px-3 sm:px-4 py-2 rounded hover:bg-red-700 text-xs sm:text-sm font-medium">✕ 一鍵 其他年級全員缺席</button>
+            <button onclick="exportExcelReport()" class="bg-emerald-700 text-white px-3 sm:px-4 py-2 rounded hover:bg-emerald-800 text-xs sm:text-sm font-medium">⬇ 匯出 Excel 明細報告</button>
           </div>
         </div>
         <div class="overflow-x-auto">
           <table class="w-full text-left border-collapse">
             <thead>
-              <tr class="bg-gray-100 text-gray-700 text-sm border-b whitespace-nowrap">
-                <th class="p-3">班別</th><th class="p-3">學號</th><th class="p-3">姓名</th><th class="p-3">點名狀態</th><th class="p-3">缺席原因</th>
+              <tr class="bg-gray-100 text-gray-700 text-xs sm:text-sm border-b whitespace-nowrap">
+                <th class="p-2 sm:p-3">班別</th><th class="p-2 sm:p-3">學號</th><th class="p-2 sm:p-3">姓名</th><th class="p-2 sm:p-3">點名狀態</th><th class="p-2 sm:p-3">缺席原因</th>
               </tr>
             </thead>
-            <tbody id="othersTableBody" class="divide-y divide-gray-200 text-sm"></tbody>
+            <tbody id="othersTableBody" class="divide-y divide-gray-200 text-xs sm:text-sm"></tbody>
           </table>
         </div>
         <div class="flex justify-end pt-4">
@@ -89,14 +91,14 @@
         </div>
       </div>
 
-      <!-- 學生名單管理 -->
+      <!-- 頁面 3: 學生名單管理 -->
       <div id="tab-students" class="space-y-6 hidden">
         <h2 class="text-xl font-bold text-gray-800">學生名單管理</h2>
         <div class="bg-gray-50 p-4 rounded-lg border space-y-3">
           <h3 class="font-bold text-sm text-gray-700">新增學生資料</h3>
           <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
-            <input type="text" id="newClass" placeholder="班別 (例如: 1A)" class="border rounded p-2 text-sm bg-white">
-            <input type="text" id="newStudentNo" placeholder="學號" class="border rounded p-2 text-sm bg-white">
+            <input type="text" id="newClass" placeholder="班別 (例如: 1A, 2B)" class="border rounded p-2 text-sm bg-white">
+            <input type="text" id="newStudentNo" placeholder="學號 (例如: 1, 2)" class="border rounded p-2 text-sm bg-white">
             <input type="text" id="newName" placeholder="姓名" class="border rounded p-2 text-sm bg-white">
             <button onclick="addStudent()" class="bg-blue-600 text-white px-4 py-2 rounded text-sm font-bold hover:bg-blue-700">＋ 新增學生</button>
           </div>
@@ -108,52 +110,56 @@
             </label>
             <span id="selectedCountText" class="text-sm text-gray-500">已選擇 0 位學生</span>
           </div>
-          <button onclick="deleteSelectedStudents()" id="btnBatchDelete" disabled class="bg-red-500 text-white px-4 py-2 rounded text-sm font-bold opacity-50 cursor-not-allowed hover:bg-red-600">🗑 批量刪除</button>
+          <button onclick="deleteSelectedStudents()" id="btnBatchDelete" disabled class="bg-red-500 text-white px-4 py-2 rounded text-sm font-bold opacity-50 cursor-not-allowed hover:bg-red-600">🗑 批量刪除選取項目</button>
         </div>
         <div class="overflow-x-auto">
           <table class="w-full text-left border-collapse">
             <thead>
-              <tr class="bg-gray-100 text-gray-700 text-sm border-b">
-                <th class="p-3 w-10"><input type="checkbox" id="selectAllStudents" onchange="toggleSelectAll(this)"></th>
-                <th class="p-3">班別</th><th class="p-3">學號</th><th class="p-3">姓名</th><th class="p-3 text-right">操作</th>
+              <tr class="bg-gray-100 text-gray-700 text-xs sm:text-sm border-b">
+                <th class="p-2 sm:p-3 w-10"><input type="checkbox" id="selectAllStudents" onchange="toggleSelectAll(this)"></th>
+                <th class="p-2 sm:p-3">班別</th><th class="p-2 sm:p-3">學號</th><th class="p-2 sm:p-3">姓名</th><th class="p-2 sm:p-3 text-right">操作</th>
               </tr>
             </thead>
-            <tbody id="studentMgmtTableBody" class="divide-y divide-gray-200 text-sm"></tbody>
+            <tbody id="studentMgmtTableBody" class="divide-y divide-gray-200 text-xs sm:text-sm"></tbody>
           </table>
         </div>
       </div>
 
-      <!-- 出席紀錄 -->
+      <!-- 頁面 4: 出席紀錄與出席率 -->
       <div id="tab-records" class="space-y-6 hidden">
         <h2 class="text-xl font-bold text-gray-800">全校出席紀錄與統計概況</h2>
         <div id="recordedDatesContainer" class="bg-blue-50 p-4 rounded-lg border border-blue-200 space-y-2 hidden">
-          <h3 class="font-bold text-sm text-blue-900">📅 已紀錄的活動日期：</h3>
+          <h3 class="font-bold text-sm text-blue-900 flex items-center gap-1">📅 已紀錄出席的活動日期：</h3>
           <div id="recordedDatesList" class="flex flex-wrap gap-2 pt-1"></div>
         </div>
         <div class="flex flex-wrap gap-4 items-center justify-between bg-gray-50 p-4 rounded-lg border">
           <div class="flex gap-2 items-center">
             <label class="text-sm font-semibold text-gray-700">搜尋學生：</label>
-            <input type="text" id="searchStudent" placeholder="輸入關鍵字..." oninput="onSearchInput()" class="border rounded p-2 text-sm w-56 bg-white">
+            <input type="text" id="searchStudent" placeholder="輸入班別、學號或姓名..." oninput="onSearchInput()" class="border rounded p-2 text-sm w-56 bg-white">
           </div>
-          <div class="text-sm text-gray-600">總活動天數：<span id="totalActivityDays" class="font-bold text-blue-600">0</span> 天</div>
+          <div class="text-sm text-gray-600">目前記錄總活動天數：<span id="totalActivityDays" class="font-bold text-blue-600">0</span> 天</div>
         </div>
         <div class="overflow-x-auto">
           <table class="w-full text-left border-collapse">
             <thead>
-              <tr class="bg-gray-100 text-gray-700 text-sm border-b whitespace-nowrap">
-                <th class="p-3">班別</th><th class="p-3">學號</th><th class="p-3">姓名</th>
-                <th class="p-3">應出席</th><th class="p-3">實際出席</th><th class="p-3">缺席</th>
-                <th class="p-3">出席率</th><th class="p-3">缺席紀錄明細</th>
+              <tr class="bg-gray-100 text-gray-700 text-xs sm:text-sm border-b whitespace-nowrap">
+                <th class="p-2 sm:p-3">班別</th><th class="p-2 sm:p-3">學號</th><th class="p-2 sm:p-3">姓名</th>
+                <th class="p-2 sm:p-3">應出席天數</th><th class="p-2 sm:p-3">實際出席</th><th class="p-2 sm:p-3">缺席天數</th>
+                <th class="p-2 sm:p-3">出席率</th><th class="p-2 sm:p-3">缺席紀錄明細</th>
               </tr>
             </thead>
-            <tbody id="recordsTableBody" class="divide-y divide-gray-200 text-sm"></tbody>
+            <tbody id="recordsTableBody" class="divide-y divide-gray-200 text-xs sm:text-sm"></tbody>
           </table>
         </div>
       </div>
+
     </div>
   </div>
 
   <script>
+    // 💡 這裡已經替換為您專屬的「免登入即可存取」的 API 連結！
+    const GAS_API_URL = "https://script.google.com/macros/s/AKfycbzmt1_MWjRRO5oCC7gTcbRTEH2F0RaoXlWpW88m5z-DSn0QAgIsr9l_i0ghv4lWUfyY/exec";
+
     let students = [];
     let attendanceDatabase = {};
     let isCloudFetched = false;
@@ -161,10 +167,14 @@
 
     document.addEventListener('DOMContentLoaded', function() {
       const savedDate = localStorage.getItem('last_selected_date');
-      if (savedDate) { document.getElementById('activityDate').value = savedDate; } 
-      else { document.getElementById('activityDate').valueAsDate = new Date(); }
+      if (savedDate) {
+        document.getElementById('activityDate').value = savedDate;
+      } else {
+        document.getElementById('activityDate').valueAsDate = new Date();
+      }
+
       loadLocalCache();
-      fetchCloudData();
+      fetchCloudData(); // 頁面載入時自動透過 API 獲取資料
     });
 
     function updateSyncStatus(statusText, colorClass) {
@@ -181,15 +191,23 @@
         const cachedDb = localStorage.getItem('cache_attendance_db');
         if (cachedStudents) students = JSON.parse(cachedStudents);
         if (cachedDb) attendanceDatabase = JSON.parse(cachedDb);
-        if (students.length > 0) { sortStudents(); loadCurrentDateRecords(); }
-      } catch (e) {}
+
+        if (students.length > 0) {
+          sortStudents();
+          loadCurrentDateRecords();
+        }
+      } catch (e) {
+        console.warn('快取讀取失敗:', e);
+      }
     }
 
     function saveLocalCache() {
       try {
         localStorage.setItem('cache_students', JSON.stringify(students));
         localStorage.setItem('cache_attendance_db', JSON.stringify(attendanceDatabase));
-      } catch (e) {}
+      } catch (e) {
+        console.warn('快取寫入失敗:', e);
+      }
     }
 
     function formatDateOnly(dateStr) {
@@ -197,56 +215,69 @@
       if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return dateStr;
       const dt = new Date(dateStr);
       if (!isNaN(dt.getTime())) {
-        return `${dt.getFullYear()}-${String(dt.getMonth() + 1).padStart(2, '0')}-${String(dt.getDate()).padStart(2, '0')}`;
+        const yyyy = dt.getFullYear();
+        const mm = String(dt.getMonth() + 1).padStart(2, '0');
+        const dd = String(dt.getDate()).padStart(2, '0');
+        return `${yyyy}-${mm}-${dd}`;
       }
       return dateStr;
     }
 
     function onDateInputChange() {
-      localStorage.setItem('last_selected_date', formatDateOnly(document.getElementById('activityDate').value));
+      const date = formatDateOnly(document.getElementById('activityDate').value);
+      localStorage.setItem('last_selected_date', date);
       loadCurrentDateRecords();
     }
 
+    // 🌐 獲取雲端資料 (使用 Fetch API)
     function fetchCloudData() {
       updateSyncStatus('⏳ 雲端同步中...', 'bg-gray-900 text-yellow-400');
-      if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-          .withSuccessHandler(function(data) {
-            if (data && data.success) {
-              isCloudFetched = true;
-              students = data.students || [];
-              const rawDb = data.attendanceDatabase || {};
-              attendanceDatabase = {};
-              Object.keys(rawDb).forEach(k => { attendanceDatabase[formatDateOnly(k)] = rawDb[k]; });
-              sortStudents();
-              saveLocalCache();
-              loadCurrentDateRecords();
-              if (!document.getElementById('tab-records').classList.contains('hidden')) renderRecordsTable();
-              updateSyncStatus('✓ 雲端已同步', 'bg-green-900 text-green-300');
-            } else {
-              const msg = (data && data.error) ? data.error : '讀取失敗';
-              updateSyncStatus('⚠️ 錯誤: ' + msg, 'bg-red-900 text-red-300');
+
+      fetch(GAS_API_URL)
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            isCloudFetched = true;
+            students = data.students || [];
+            const rawDb = data.attendanceDatabase || {};
+            attendanceDatabase = {};
+            Object.keys(rawDb).forEach(k => {
+              const cleanKey = formatDateOnly(k);
+              attendanceDatabase[cleanKey] = rawDb[k];
+            });
+
+            sortStudents();
+            saveLocalCache();
+            loadCurrentDateRecords();
+            if (!document.getElementById('tab-records').classList.contains('hidden')) {
+              renderRecordsTable();
             }
-          })
-          .withFailureHandler(function(err) {
-            const msg = (err && err.message) ? err.message : String(err);
-            updateSyncStatus('⚠️ 失敗: ' + msg, 'bg-red-900 text-red-300');
-          })
-          .getCloudData();
-      } else {
-        updateSyncStatus('📡 離線模式 (請透過Web App網址開啟)', 'bg-orange-900 text-orange-300');
-      }
+
+            updateSyncStatus('✓ 雲端已同步', 'bg-green-900 text-green-300');
+          } else {
+            updateSyncStatus('⚠️ 雲端讀取異常', 'bg-red-900 text-red-300');
+          }
+        })
+        .catch(err => {
+          console.error('雲端連線失敗:', err);
+          updateSyncStatus('📡 離線模式 (快取數據)', 'bg-orange-900 text-orange-300');
+        });
     }
 
+    // 💾 儲存點名紀錄至雲端
     function saveAttendanceRecord() {
-      const date = formatDateOnly(document.getElementById('activityDate').value);
-      if (!date) return alert('請選擇活動日期！');
+      const rawDate = document.getElementById('activityDate').value;
+      if (!rawDate) return alert('請選擇活動日期！');
+      const date = formatDateOnly(rawDate);
       localStorage.setItem('last_selected_date', date);
 
-      const records = { ...(attendanceDatabase[date]?.records || {}) };
+      const existingRecords = attendanceDatabase[date]?.records || {};
+      const records = { ...existingRecords };
+
       students.forEach(s => {
         const isPresent = document.getElementById(`present_${s.id}`)?.checked;
         const isAbsent = document.getElementById(`absent_${s.id}`)?.checked;
+        
         if (isPresent || isAbsent) {
           records[s.id] = {
             status: isPresent ? '出席' : '未出席',
@@ -255,50 +286,84 @@
           };
         }
       });
-      const activity = document.getElementById('activityType').value === '其他' ? document.getElementById('customActivity').value : '常規集會';
-      attendanceDatabase[date] = { activity, records };
-      saveLocalCache();
-      updateSyncStatus('⏳ 儲存中...', 'bg-blue-900 text-blue-300');
 
-      if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-          .withSuccessHandler(function(data) {
-            if (data && data.success) {
-              updateSyncStatus('✓ 紀錄已儲存', 'bg-green-900 text-green-300');
-              alert(`[${date}] 點名紀錄已成功同步！`);
-            } else { updateSyncStatus('⚠️ 儲存失敗', 'bg-red-900 text-red-300'); }
-          })
-          .withFailureHandler(function(err) { updateSyncStatus('⚠️ 儲存失敗', 'bg-red-900 text-red-300'); })
-          .saveAttendanceRecordGS(date, activity, records);
-      }
+      const activity = document.getElementById('activityType').value === '其他' ? document.getElementById('customActivity').value : '常規集會';
+      attendanceDatabase[date] = { activity: activity, records: records };
+
+      saveLocalCache();
+      updateSyncStatus('⏳ 正在儲存至雲端...', 'bg-blue-900 text-blue-300');
+
+      // 使用 text/plain 避免 CORS 阻擋
+      fetch(GAS_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          type: 'SAVE_ATTENDANCE',
+          date: date,
+          activity: activity,
+          records: records
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          updateSyncStatus('✓ 點名紀錄已儲存', 'bg-green-900 text-green-300');
+          alert(`[${date}] 點名紀錄已成功同步至 Google 雲端！`);
+        }
+      })
+      .catch(() => {
+        updateSyncStatus('⚠️ 儲存連線失敗', 'bg-red-900 text-red-300');
+      });
     }
 
+    // 🗑️ 刪除雲端點名紀錄
     function deleteAttendanceForDate(date, event) {
       if (event) event.stopPropagation();
       const cleanDate = formatDateOnly(date);
-      if (confirm(`確定要刪除 [${cleanDate}] 的點名紀錄嗎？`)) {
+
+      if (confirm(`確定要刪除 [${cleanDate}] 的所有點名紀錄嗎？此操作將同步移除雲端資料。`)) {
         delete attendanceDatabase[cleanDate];
         saveLocalCache();
+
         loadCurrentDateRecords();
-        if (!document.getElementById('tab-records').classList.contains('hidden')) renderRecordsTable();
-        updateSyncStatus('⏳ 刪除中...', 'bg-red-900 text-red-300');
-        if (typeof google !== 'undefined' && google.script && google.script.run) {
-          google.script.run
-            .withSuccessHandler(function(data) {
-              if (data && data.success) {
-                updateSyncStatus('✓ 紀錄已刪除', 'bg-green-900 text-green-300');
-              }
-            })
-            .deleteAttendanceGS(cleanDate);
+        if (!document.getElementById('tab-records').classList.contains('hidden')) {
+          renderRecordsTable();
         }
+
+        updateSyncStatus('⏳ 正在從雲端刪除...', 'bg-red-900 text-red-300');
+
+        fetch(GAS_API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({
+            type: 'DELETE_ATTENDANCE',
+            date: cleanDate
+          })
+        })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            updateSyncStatus('✓ 紀錄已刪除', 'bg-green-900 text-green-300');
+            alert(`[${cleanDate}] 的點名紀錄已成功從 Google 雲端刪除！`);
+          }
+        });
       }
     }
 
+    // 🔄 同步學生名單至雲端
     function syncStudentsToCloud() {
       saveLocalCache();
-      if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run.updateStudentsGS(students);
-      }
+      updateSyncStatus('⏳ 更新名單中...', 'bg-blue-900 text-blue-300');
+      fetch(GAS_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          type: 'UPDATE_STUDENTS',
+          students: students
+        })
+      }).then(() => {
+        updateSyncStatus('✓ 雲端已同步', 'bg-green-900 text-green-300');
+      });
     }
 
     function isS1Student(student) {
@@ -320,11 +385,12 @@
         document.getElementById(`nav-${id}`).classList.remove('bg-gray-700', 'border-blue-500');
         document.getElementById(`nav-${id}`).classList.add('border-transparent');
       });
+
       document.getElementById(tabId).classList.remove('hidden');
       document.getElementById(`nav-${tabId}`).classList.add('bg-gray-700', 'border-blue-500');
 
-      const isAttTab = (tabId === 'tab-s1' || tabId === 'tab-others');
-      document.getElementById('activityHeader').classList.toggle('hidden', !isAttTab);
+      const isAttendanceTab = (tabId === 'tab-s1' || tabId === 'tab-others');
+      document.getElementById('activityHeader').classList.toggle('hidden', !isAttendanceTab);
 
       if (tabId === 'tab-s1') renderAttendanceTable('s1');
       if (tabId === 'tab-others') renderAttendanceTable('others');
@@ -335,40 +401,51 @@
     function renderAttendanceTable(category) {
       const targetList = category === 's1' ? students.filter(isS1Student) : students.filter(s => !isS1Student(s));
       const tbody = document.getElementById(category === 's1' ? 's1TableBody' : 'othersTableBody');
+
       const currentDate = formatDateOnly(document.getElementById('activityDate').value);
       const existingRecords = attendanceDatabase[currentDate]?.records || {};
 
       if (targetList.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" class="p-6 text-center text-gray-400">尚無數據，請新增學生...</td></tr>`;
+        if (!isCloudFetched && students.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="5" class="p-6 text-center text-blue-600 font-medium">⏳ 正在載入雲端學生名單，請稍候...</td></tr>`;
+        } else {
+          tbody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-gray-400">目前尚無數據，請先新增學生或匯入 Excel...</td></tr>`;
+        }
         return;
       }
 
-      tbody.innerHTML = targetList.map(student => {
+      const rowsHtml = targetList.map(student => {
         const record = existingRecords[student.id] || { status: '出席', reasonType: '校內活動', customReason: '' };
         return `
-          <tr class="hover:bg-gray-50">
-            <td class="p-3 font-medium">${student.class}</td>
-            <td class="p-3">${student.studentNo}</td>
-            <td class="p-3 font-semibold">${student.name}</td>
-            <td class="p-3">
-              <div class="flex gap-3">
-                <label class="cursor-pointer"><input type="radio" id="present_${student.id}" name="status_${student.id}" value="出席" ${record.status === '出席' ? 'checked' : ''} onchange="toggleReasonField('${student.id}')"> 出席</label>
-                <label class="cursor-pointer text-red-600"><input type="radio" id="absent_${student.id}" name="status_${student.id}" value="未出席" ${record.status === '未出席' ? 'checked' : ''} onchange="toggleReasonField('${student.id}')"> 未出席</label>
+          <tr class="hover:bg-gray-50 text-xs sm:text-sm">
+            <td class="p-2 sm:p-3 font-medium whitespace-nowrap">${student.class}</td>
+            <td class="p-2 sm:p-3 whitespace-nowrap">${student.studentNo}</td>
+            <td class="p-2 sm:p-3 font-semibold whitespace-nowrap">${student.name}</td>
+            <td class="p-2 sm:p-3 whitespace-nowrap">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+                <label class="inline-flex items-center gap-1 cursor-pointer whitespace-nowrap">
+                  <input type="radio" id="present_${student.id}" name="status_${student.id}" value="出席" ${record.status === '出席' ? 'checked' : ''} onchange="toggleReasonField('${student.id}')"> 出席
+                </label>
+                <label class="inline-flex items-center gap-1 cursor-pointer text-red-600 whitespace-nowrap">
+                  <input type="radio" id="absent_${student.id}" name="status_${student.id}" value="未出席" ${record.status === '未出席' ? 'checked' : ''} onchange="toggleReasonField('${student.id}')"> 未出席
+                </label>
               </div>
             </td>
-            <td class="p-3">
-              <div id="reasonBlock_${student.id}" class="${record.status === '未出席' ? '' : 'hidden'} space-y-1">
-                <select id="reasonType_${student.id}" class="border rounded p-1 text-xs w-full" onchange="toggleCustomReasonInput('${student.id}')">
+            <td class="p-2 sm:p-3">
+              <div id="reasonBlock_${student.id}" class="${record.status === '未出席' ? '' : 'hidden'} space-y-1 min-w-[120px]">
+                <select id="reasonType_${student.id}" class="border rounded p-1 text-xs bg-white w-full" onchange="toggleCustomReasonInput('${student.id}')">
                   <option value="校內活動" ${record.reasonType === '校內活動' ? 'selected' : ''}>校內活動</option>
                   <option value="病假" ${record.reasonType === '病假' ? 'selected' : ''}>病假</option>
                   <option value="自行輸入" ${record.reasonType === '自行輸入' ? 'selected' : ''}>自行輸入</option>
                 </select>
-                <input type="text" id="customReason_${student.id}" value="${record.customReason || ''}" placeholder="原因..." class="border rounded p-1 text-xs w-full ${record.reasonType === '自行輸入' ? '' : 'hidden'}">
+                <input type="text" id="customReason_${student.id}" value="${record.customReason || ''}" placeholder="詳細原因..." class="border rounded p-1 text-xs w-full bg-white ${record.reasonType === '自行輸入' ? '' : 'hidden'}">
               </div>
             </td>
           </tr>
         `;
       }).join('');
+
+      tbody.innerHTML = rowsHtml;
     }
 
     function toggleCustomContent() {
@@ -388,7 +465,10 @@
       const targetList = category === 's1' ? students.filter(isS1Student) : students.filter(s => !isS1Student(s));
       targetList.forEach(s => {
         const radio = document.getElementById(`present_${s.id}`);
-        if (radio) { radio.checked = true; toggleReasonField(s.id); }
+        if (radio) {
+          radio.checked = true;
+          toggleReasonField(s.id);
+        }
       });
     }
 
@@ -396,51 +476,75 @@
       const targetList = category === 's1' ? students.filter(isS1Student) : students.filter(s => !isS1Student(s));
       targetList.forEach(s => {
         const radio = document.getElementById(`absent_${s.id}`);
-        if (radio) { radio.checked = true; toggleReasonField(s.id); }
+        if (radio) {
+          radio.checked = true;
+          toggleReasonField(s.id);
+        }
       });
     }
 
     function loadCurrentDateRecords() {
       const currentDate = formatDateOnly(document.getElementById('activityDate').value);
-      const actInfo = attendanceDatabase[currentDate];
-      if (actInfo) {
-        document.getElementById('activityType').value = actInfo.activity === '常規集會' ? '常規集會' : '其他';
-        document.getElementById('customActivity').value = actInfo.activity === '常規集會' ? '' : actInfo.activity;
+      const activityInfo = attendanceDatabase[currentDate];
+      if (activityInfo) {
+        if (activityInfo.activity === '常規集會') {
+          document.getElementById('activityType').value = '常規集會';
+          document.getElementById('customActivity').value = '';
+        } else {
+          document.getElementById('activityType').value = '其他';
+          document.getElementById('customActivity').value = activityInfo.activity || '';
+        }
       } else {
         document.getElementById('activityType').value = '常規集會';
         document.getElementById('customActivity').value = '';
       }
       toggleCustomContent();
+
       if (!document.getElementById('tab-s1').classList.contains('hidden')) renderAttendanceTable('s1');
       if (!document.getElementById('tab-others').classList.contains('hidden')) renderAttendanceTable('others');
     }
 
     function editAttendanceForDate(date) {
-      document.getElementById('activityDate').value = formatDateOnly(date);
-      onDateInputChange();
+      const cleanDate = formatDateOnly(date);
+      document.getElementById('activityDate').value = cleanDate;
+      localStorage.setItem('last_selected_date', cleanDate);
+      loadCurrentDateRecords();
       switchTab('tab-s1');
     }
 
     function renderStudentMgmtTable() {
-      document.getElementById('studentMgmtTableBody').innerHTML = students.map(s => `
-        <tr class="hover:bg-gray-50 border-b">
-          <td class="p-3"><input type="checkbox" class="student-select-checkbox" value="${s.id}" onchange="updateBatchDeleteButton()"></td>
-          <td class="p-3 font-medium">${s.class}</td><td class="p-3">${s.studentNo}</td><td class="p-3 font-semibold">${s.name}</td>
-          <td class="p-3 text-right"><button onclick="deleteSingleStudent('${s.id}')" class="text-red-600 font-bold">刪除</button></td>
-        </tr>
-      `).join('');
+      const tbody = document.getElementById('studentMgmtTableBody');
       document.getElementById('selectAllStudents').checked = false;
       updateBatchDeleteButton();
+
+      const rowsHtml = students.map(student => `
+        <tr class="hover:bg-gray-50 text-xs sm:text-sm">
+          <td class="p-2 sm:p-3"><input type="checkbox" class="student-select-checkbox" value="${student.id}" onchange="updateBatchDeleteButton()"></td>
+          <td class="p-2 sm:p-3 font-medium whitespace-nowrap">${student.class} ${isS1Student(student) ? '<span class="text-xs text-blue-600 bg-blue-50 px-1 rounded">S.1</span>' : ''}</td>
+          <td class="p-2 sm:p-3 whitespace-nowrap">${student.studentNo}</td>
+          <td class="p-2 sm:p-3 font-semibold whitespace-nowrap">${student.name}</td>
+          <td class="p-2 sm:p-3 text-right whitespace-nowrap"><button onclick="deleteSingleStudent('${student.id}')" class="text-red-600 hover:text-red-800 text-xs font-bold">刪除</button></td>
+        </tr>
+      `).join('');
+
+      tbody.innerHTML = rowsHtml;
     }
 
     function addStudent() {
       const className = document.getElementById('newClass').value.trim();
       const studentNo = document.getElementById('newStudentNo').value.trim();
       const name = document.getElementById('newName').value.trim();
-      if (!className || !studentNo || !name) return alert('請完整填寫！');
+
+      if (!className || !studentNo || !name) return alert('請完整填寫班別、學號及姓名！');
+
       students.push({ id: String(Date.now()), class: className, studentNo, name });
-      document.getElementById('newClass').value = ''; document.getElementById('newStudentNo').value = ''; document.getElementById('newName').value = '';
-      sortStudents(); syncStudentsToCloud(); renderStudentMgmtTable();
+      document.getElementById('newClass').value = '';
+      document.getElementById('newStudentNo').value = '';
+      document.getElementById('newName').value = '';
+
+      sortStudents();
+      syncStudentsToCloud();
+      renderStudentMgmtTable();
     }
 
     function toggleSelectAll(master) {
@@ -451,30 +555,34 @@
     function updateBatchDeleteButton() {
       const selected = document.querySelectorAll('.student-select-checkbox:checked');
       const btn = document.getElementById('btnBatchDelete');
-      btn.disabled = selected.length === 0;
       document.getElementById('selectedCountText').innerText = `已選擇 ${selected.length} 位學生`;
+      btn.disabled = selected.length === 0;
       btn.classList.toggle('opacity-50', selected.length === 0);
       btn.classList.toggle('cursor-not-allowed', selected.length === 0);
     }
 
     function deleteSingleStudent(id) {
-      if (confirm('確定刪除？')) {
+      if (confirm('確定要刪除該學生嗎？')) {
         students = students.filter(s => s.id !== id);
-        syncStudentsToCloud(); renderStudentMgmtTable();
+        syncStudentsToCloud();
+        renderStudentMgmtTable();
       }
     }
 
     function deleteSelectedStudents() {
       const selectedIds = Array.from(document.querySelectorAll('.student-select-checkbox:checked')).map(cb => cb.value);
-      if (confirm(`刪除 ${selectedIds.length} 位學生？`)) {
+      if (confirm(`確定要刪除選取的 ${selectedIds.length} 位學生嗎？`)) {
         students = students.filter(s => !selectedIds.includes(s.id));
-        syncStudentsToCloud(); renderStudentMgmtTable();
+        syncStudentsToCloud();
+        renderStudentMgmtTable();
       }
     }
 
     function onSearchInput() {
       clearTimeout(searchTimeout);
-      searchTimeout = setTimeout(() => { renderRecordsTable(); }, 300);
+      searchTimeout = setTimeout(() => {
+        renderRecordsTable();
+      }, 300);
     }
 
     function renderRecordsTable() {
@@ -483,39 +591,72 @@
       const dates = Object.keys(attendanceDatabase).sort();
       const totalEvents = dates.length;
       
+      const preFormattedDates = dates.map(d => formatDateOnly(d));
+
       if (datesContainer && datesListDiv) {
-        datesContainer.classList.toggle('hidden', totalEvents === 0);
-        datesListDiv.innerHTML = dates.map(d => {
-          const act = attendanceDatabase[d]?.activity || '常規集會';
-          return `<div class="inline-flex bg-white border border-blue-300 text-blue-700 rounded-md text-xs font-bold overflow-hidden">
-            <button onclick="editAttendanceForDate('${d}')" class="px-3 py-1 hover:bg-blue-600 hover:text-white flex items-center gap-1">📅 ${d} (${act})</button>
-            <button onclick="deleteAttendanceForDate('${d}', event)" class="px-2 py-1 text-red-500 hover:bg-red-600 hover:text-white border-l border-blue-200">✕</button>
-          </div>`;
-        }).join('');
+        if (totalEvents === 0) {
+          datesContainer.classList.add('hidden');
+        } else {
+          datesContainer.classList.remove('hidden');
+          datesListDiv.innerHTML = dates.map((d, index) => {
+            const cleanDate = preFormattedDates[index];
+            const act = attendanceDatabase[d]?.activity || '常規集會';
+            return `
+              <div class="inline-flex items-center bg-white border border-blue-300 text-blue-700 rounded-md text-xs font-bold shadow-sm overflow-hidden">
+                <button onclick="editAttendanceForDate('${cleanDate}')" class="px-3 py-1.5 hover:bg-blue-600 hover:text-white transition flex items-center gap-1">
+                  📅 ${cleanDate} <span class="text-[10px] opacity-75">(${act})</span>
+                </button>
+                <button onclick="deleteAttendanceForDate('${cleanDate}', event)" title="刪除此日紀錄" class="px-2 py-1.5 text-red-500 hover:bg-red-600 hover:text-white border-l border-blue-200 transition font-black">
+                  ✕
+                </button>
+              </div>
+            `;
+          }).join('');
+        }
       }
 
+      const tbody = document.getElementById('recordsTableBody');
+      const searchKeyword = document.getElementById('searchStudent').value.toLowerCase();
       document.getElementById('totalActivityDays').innerText = totalEvents;
-      const kw = document.getElementById('searchStudent').value.toLowerCase();
-      const filtered = students.filter(s => s.name.toLowerCase().includes(kw) || s.studentNo.includes(kw) || s.class.toLowerCase().includes(kw));
 
-      document.getElementById('recordsTableBody').innerHTML = filtered.map(s => {
+      const filteredStudents = students.filter(s => s.name.toLowerCase().includes(searchKeyword) || s.studentNo.includes(searchKeyword) || s.class.toLowerCase().includes(searchKeyword));
+
+      const rowsHtml = filteredStudents.map(student => {
         let attended = 0, absent = 0, absentDates = [];
-        dates.forEach(d => {
-          const rec = attendanceDatabase[d]?.records[s.id];
+
+        dates.forEach((date, index) => {
+          const rec = attendanceDatabase[date]?.records[student.id];
           if (rec) {
-            if (rec.status === '出席') attended++;
-            else { absent++; absentDates.push(d); }
+            if (rec.status === '出席') {
+              attended++;
+            } else if (rec.status === '未出席') {
+              absent++;
+              absentDates.push(preFormattedDates[index]);
+            }
           }
         });
-        const rate = totalEvents > 0 ? Math.round((attended / totalEvents) * 100) : 0;
-        const rateDisplay = totalEvents > 0 ? `<span class="px-2 py-1 rounded text-xs font-bold ${rate >= 80 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">${rate}%</span>` : '—';
 
-        return `<tr class="hover:bg-gray-50 border-b">
-          <td class="p-3">${s.class}</td><td class="p-3">${s.studentNo}</td><td class="p-3 font-semibold">${s.name}</td>
-          <td class="p-3">${totalEvents}</td><td class="p-3 text-green-600 font-bold">${attended}</td><td class="p-3 text-red-600 font-bold">${absent}</td>
-          <td class="p-3">${rateDisplay}</td><td class="p-3 text-xs text-gray-500">${absentDates.join(', ') || '無缺席'}</td>
-        </tr>`;
+        let rateDisplay = '<span class="text-gray-400 font-bold">—</span>';
+        if (totalEvents > 0) {
+          const rate = Math.round((attended / totalEvents) * 100);
+          rateDisplay = `<span class="px-2 py-1 rounded text-xs font-bold ${rate >= 80 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">${rate}%</span>`;
+        }
+
+        return `
+          <tr class="hover:bg-gray-50 text-xs sm:text-sm">
+            <td class="p-2 sm:p-3 font-medium whitespace-nowrap">${student.class}</td>
+            <td class="p-2 sm:p-3 whitespace-nowrap">${student.studentNo}</td>
+            <td class="p-2 sm:p-3 font-semibold whitespace-nowrap">${student.name}</td>
+            <td class="p-2 sm:p-3 whitespace-nowrap">${totalEvents}</td>
+            <td class="p-2 sm:p-3 text-green-600 font-bold whitespace-nowrap">${attended}</td>
+            <td class="p-2 sm:p-3 text-red-600 font-bold whitespace-nowrap">${absent}</td>
+            <td class="p-2 sm:p-3 whitespace-nowrap">${rateDisplay}</td>
+            <td class="p-2 sm:p-3 text-xs text-gray-500">${absentDates.length > 0 ? absentDates.join(', ') : '<span class="text-gray-400">無缺席紀錄</span>'}</td>
+          </tr>
+        `;
       }).join('');
+
+      tbody.innerHTML = rowsHtml;
     }
 
     function importExcel(e) {
@@ -527,36 +668,56 @@
         const workbook = XLSX.read(data, { type: 'array' });
         const sheet = workbook.Sheets[workbook.SheetNames[0]];
         const json = XLSX.utils.sheet_to_json(sheet);
-        students = json.map((row, i) => ({
-          id: String(Date.now() + i), class: String(row['班別'] || '1A'), studentNo: String(row['學號'] || (i + 1)), name: row['姓名'] || '未知'
+
+        students = json.map((row, index) => ({
+          id: String(Date.now() + index),
+          class: String(row['班別'] || '1A'),
+          studentNo: String(row['學號'] || (index + 1)),
+          name: row['姓名'] || '未知學生'
         }));
-        sortStudents(); syncStudentsToCloud(); switchTab('tab-s1'); alert(`成功匯入 ${students.length} 筆資料！`);
+
+        sortStudents();
+        syncStudentsToCloud();
+        switchTab('tab-s1');
+        alert(`成功匯入 ${students.length} 筆學生資料！已同步更新至 Google 雲端。`);
       };
       reader.readAsArrayBuffer(file);
     }
 
     function exportExcelReport() {
       const dates = Object.keys(attendanceDatabase).sort();
-      if (dates.length === 0) return alert('目前尚無點名紀錄！');
-      
+      const totalEvents = dates.length;
+      const preFormattedDates = dates.map(d => formatDateOnly(d));
+
+      if (totalEvents === 0) return alert('目前尚無點名紀錄可供匯出！');
+
       const exportData = students.map(s => {
         let attended = 0, absent = 0;
         const row = { '班別': s.class, '學號': s.studentNo, '姓名': s.name };
-        dates.forEach(d => {
-          const info = attendanceDatabase[d];
-          const rec = info.records[s.id];
-          const col = `${d} [${info.activity || '常規集會'}]`;
+
+        dates.forEach((d, index) => {
+          const activityInfo = attendanceDatabase[d];
+          const cleanDate = preFormattedDates[index];
+          const colHeader = `${cleanDate} [${activityInfo.activity || '常規集會'}]`;
+          const rec = activityInfo.records[s.id];
+
           if (rec) {
-            if (rec.status === '出席') { attended++; row[col] = '出席'; }
-            else { absent++; row[col] = `未出席 (${rec.reasonType === '自行輸入' ? rec.customReason : rec.reasonType})`; }
-          } else { row[col] = '未紀錄'; }
+            if (rec.status === '出席') { attended++; row[colHeader] = '出席'; }
+            else { absent++; row[colHeader] = `未出席 (${rec.reasonType === '自行輸入' ? rec.customReason : rec.reasonType})`; }
+          } else { row[colHeader] = '未紀錄'; }
         });
-        row['應出席天數'] = dates.length; row['實際出席'] = attended; row['缺席天數'] = absent; row['出席率'] = Math.round((attended / dates.length) * 100) + '%';
+
+        row['應出席天數'] = totalEvents;
+        row['實際出席'] = attended;
+        row['缺席天數'] = absent;
+        row['出席率'] = Math.round((attended / totalEvents) * 100) + '%';
         return row;
       });
+
       const ws = XLSX.utils.json_to_sheet(exportData);
-      const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, ws, "出席統計");
-      XLSX.writeFile(wb, "全校活動點名報告.xlsx");
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "出席統計");
+      XLSX.writeFile(wb, "全校活動點名與出席率報告.xlsx");
     }
   </script>
 </body>
